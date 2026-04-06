@@ -3,8 +3,8 @@ import sitemap from "@astrojs/sitemap";
 import remarkGfm from "remark-gfm";
 
 export default defineConfig({
-  site: process.env.SITE_URL || "https://example.com",
-  base: process.env.SITE_BASE || "/",
+  site: "https://10elizabethbell.github.io",
+  base: "/Road-to-500K/",
   output: "static",
   integrations: [sitemap()],
   markdown: {
