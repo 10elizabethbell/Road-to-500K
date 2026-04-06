@@ -1,0 +1,44 @@
+---
+import { siteConfig } from "../lib/site";
+
+const {
+  PUBLIC_GISCUS_REPO,
+  PUBLIC_GISCUS_REPO_ID,
+  PUBLIC_GISCUS_CATEGORY,
+  PUBLIC_GISCUS_CATEGORY_ID
+} = import.meta.env;
+
+const giscusReady =
+  PUBLIC_GISCUS_REPO &&
+  PUBLIC_GISCUS_REPO_ID &&
+  PUBLIC_GISCUS_CATEGORY &&
+  PUBLIC_GISCUS_CATEGORY_ID;
+---
+
+<section class="comments-panel" aria-labelledby="comments-heading">
+  <div class="section-heading">
+    <p class="section-kicker">Discussion</p>
+    <h2 id="comments-heading">Comments</h2>
+  </div>
+  {giscusReady ? (
+    <script
+      is:inline
+      src="https://giscus.app/client.js"
+      data-repo={PUBLIC_GISCUS_REPO}
+      data-repo-id={PUBLIC_GISCUS_REPO_ID}
+      data-category={PUBLIC_GISCUS_CATEGORY}
+      data-category-id={PUBLIC_GISCUS_CATEGORY_ID}
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="0"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-theme="dark_dimmed"
+      data-lang="en"
+      crossorigin="anonymous"
+      async
+    ></script>
+  ) : (
+    <p class="subtle-note">{siteConfig.commentsBlurb}</p>
+  )}
+</section>

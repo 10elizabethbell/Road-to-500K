@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../components/BaseLayout.astro";
+import NewsletterSignup from "../components/NewsletterSignup.astro";
+import { siteConfig } from "../lib/site";
+---
+
+<BaseLayout
+  title={`Contact | ${siteConfig.title}`}
+  description={siteConfig.contactBlurb}
+  canonicalPath="/contact/"
+>
+  <div class="home-sections">
+    <section class="page-panel">
+      <p class="section-kicker">{siteConfig.contactHeading}</p>
+      <h1>Contact</h1>
+      <p>{siteConfig.contactBlurb}</p>
+      <p>
+        For now, this page exists so the site structure is in place without adding
+        noisy widgets or public links before they are actually needed.
+      </p>
+    </section>
+    <NewsletterSignup />
+  </div>
+</BaseLayout>

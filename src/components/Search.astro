@@ -1,0 +1,74 @@
+<section class="search-panel" aria-labelledby="search-heading">
+  <div class="section-heading">
+    <p class="section-kicker">Search</p>
+    <h2 id="search-heading">Find a post by title or description.</h2>
+  </div>
+  <label class="search-label" for="search-input">Search posts</label>
+  <input
+    id="search-input"
+    class="search-input"
+    type="search"
+    placeholder="Start typing..."
+    autocomplete="off"
+  />
+  <p class="search-status" id="search-status">Loading posts...</p>
+  <div id="search-results" class="search-results"></div>
+</section>
+
+<script>
+  type SearchPost = {
+    title: string;
+    description: string;
+    publishDate: string;
+    readingTime: number;
+    url: string;
+  };
+
+  const input = document.querySelector<HTMLInputElement>("#search-input");
+  const results = document.querySelector<HTMLDivElement>("#search-results");
+  const status = document.querySelector<HTMLParagraphElement>("#search-status");
+
+  const renderResult = (post: SearchPost) => `
+    <article class="search-result">
+      <p class="eyebrow">
+        <span>${post.publishDate}</span>
+        <span>${post.readingTime} min read</span>
+      </p>
+      <h3><a href="${post.url}">${post.title}</a></h3>
+      <p>${post.description}</p>
+    </article>
+  `;
+
+  if (input && results && status) {
+    fetch("/api/search.json")
+      .then((response) => response.json() as Promise<SearchPost[]>)
+      .then((posts) => {
+        const render = (query = "") => {
+          const normalized = query.trim().toLowerCase();
+          const matches = posts.filter((post: SearchPost) => {
+            return (
+              !normalized ||
+              post.title.toLowerCase().includes(normalized) ||
+              post.description.toLowerCase().includes(normalized)
+            );
+          });
+
+          status.textContent = normalized
+            ? `${matches.length} result${matches.length === 1 ? "" : "s"}`
+            : `${posts.length} post${posts.length === 1 ? "" : "s"} indexed`;
+
+          results.innerHTML = matches.length
+            ? matches.map(renderResult).join("")
+            : `<p class="search-empty">No posts matched "${query}".</p>`;
+        };
+
+        render();
+        input.addEventListener("input", () => {
+          render(input.value);
+        });
+      })
+      .catch(() => {
+        status.textContent = "Search is unavailable right now.";
+      });
+  }
+</script>

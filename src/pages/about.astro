@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../components/BaseLayout.astro";
+import { siteConfig } from "../lib/site";
+---
+
+<BaseLayout
+  title={`About | ${siteConfig.title}`}
+  description={siteConfig.aboutIntro}
+  canonicalPath="/about/"
+>
+  <section class="page-panel">
+    <div class="about-grid">
+      <div>
+        <p class="section-kicker">About</p>
+        <h1>Ellie Bell</h1>
+        <p>{siteConfig.aboutIntro}</p>
+        <p>{siteConfig.aboutBody}</p>
+        <p>
+          The writing here follows the process in public: trying ideas, narrowing
+          them down, staying accountable, and seeing what survives over time.
+        </p>
+      </div>
+      <img src="/personal-photo.png" alt="Portrait of Ellie Bell" />
+    </div>
+  </section>
+</BaseLayout>

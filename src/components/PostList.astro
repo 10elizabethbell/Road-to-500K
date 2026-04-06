@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getReadingTime } from "../lib/posts";
+
+interface Props {
+  posts: CollectionEntry<"blog">[];
+}
+
+const { posts } = Astro.props;
+---
+
+<div class="post-list">
+  {posts.map((post) => (
+    <article class="post-card">
+      <p class="eyebrow">
+        <span>{post.data.publishDate.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}</span>
+        <span>{getReadingTime(post.body)} min read</span>
+      </p>
+      <h2>
+        <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+      </h2>
+      <p>{post.data.description}</p>
+    </article>
+  ))}
+</div>

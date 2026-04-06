@@ -1,0 +1,65 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../components/BaseLayout.astro";
+import Comments from "../../components/Comments.astro";
+import NewsletterSignup from "../../components/NewsletterSignup.astro";
+import { getReadingTime, isPublished } from "../../lib/posts";
+import { siteConfig } from "../../lib/site";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+
+  return posts
+    .filter((entry) => isPublished(entry))
+    .map((entry) => ({
+      params: { slug: entry.id },
+      props: { entry }
+    }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const readingTime = getReadingTime(entry.body);
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: entry.data.title,
+  description: entry.data.description,
+  datePublished: entry.data.publishDate.toISOString(),
+  dateModified: (entry.data.updatedDate || entry.data.publishDate).toISOString(),
+  author: {
+    "@type": "Person",
+    name: siteConfig.author
+  },
+  mainEntityOfPage: new URL(`/blog/${entry.id}/`, Astro.site).toString()
+};
+---
+
+<BaseLayout
+  title={`${entry.data.title} | ${siteConfig.title}`}
+  description={entry.data.description}
+  canonicalPath={`/blog/${entry.id}/`}
+>
+  <Fragment slot="head">
+    <meta property="og:type" content="article" />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  </Fragment>
+
+  <article class="post-shell">
+    <header>
+      <p class="post-meta">
+        <span>{entry.data.publishDate.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}</span>
+        <span>{readingTime} min read</span>
+        {entry.data.unlisted && <span>Unlisted</span>}
+      </p>
+      <h1>{entry.data.title}</h1>
+      <p>{entry.data.description}</p>
+    </header>
+    <Content />
+  </article>
+
+  <div class="home-sections">
+    <Comments />
+    <NewsletterSignup />
+  </div>
+</BaseLayout>

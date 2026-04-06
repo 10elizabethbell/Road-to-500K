@@ -1,0 +1,30 @@
+---
+import { siteConfig } from "../lib/site";
+
+const newsletterAction = import.meta.env.PUBLIC_NEWSLETTER_ACTION;
+---
+
+<section class="newsletter-panel" aria-labelledby="newsletter-heading">
+  <div class="section-heading">
+    <p class="section-kicker">Stay close</p>
+    <h2 id="newsletter-heading">{siteConfig.newsletterHeading}</h2>
+  </div>
+  {newsletterAction ? (
+    <form class="newsletter-form" action={newsletterAction} method="post">
+      <label class="search-label" for="newsletter-email">Email address</label>
+      <div class="newsletter-row">
+        <input
+          id="newsletter-email"
+          class="search-input"
+          type="email"
+          name="email"
+          placeholder="you@example.com"
+          required
+        />
+        <button class="button" type="submit">Sign up</button>
+      </div>
+    </form>
+  ) : (
+    <p class="subtle-note">{siteConfig.newsletterBlurb}</p>
+  )}
+</section>

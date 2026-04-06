@@ -1,0 +1,78 @@
+---
+import "../styles/global.css";
+import { siteConfig } from "../lib/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalPath?: string;
+  image?: string;
+}
+
+const {
+  title = siteConfig.title,
+  description = siteConfig.description,
+  canonicalPath = "/",
+  image = "/personal-photo.png"
+} = Astro.props;
+
+const canonicalUrl = new URL(canonicalPath, Astro.site);
+const imageUrl = new URL(image, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#101719" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    <link rel="alternate" type="application/rss+xml" title={`${siteConfig.title} RSS`} href="/rss.xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <slot name="head" />
+    {import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN && (
+      <script
+        is:inline
+        defer
+        data-domain={import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN}
+        src="https://plausible.io/js/script.js"
+      ></script>
+    )}
+  </head>
+  <body>
+    <div class="shell">
+      <header class="site-header">
+        <a class="brand" href="/">{siteConfig.title}</a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+          <a href="/rss.xml">RSS</a>
+        </nav>
+      </header>
+      <main>
+        <slot />
+      </main>
+      <footer class="site-footer">
+        <p>{siteConfig.title} is written by {siteConfig.author}.</p>
+      </footer>
+    </div>
+  </body>
+</html>
