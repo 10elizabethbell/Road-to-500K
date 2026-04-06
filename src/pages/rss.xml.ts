@@ -1,7 +1,7 @@
 import type { APIContext } from "astro";
 import rss from "@astrojs/rss";
 import { getPublishedPosts } from "../lib/posts";
-import { siteConfig } from "../lib/site";
+import { siteConfig, withBase } from "../lib/site";
 
 export async function GET(context: APIContext) {
   const posts = await getPublishedPosts();
@@ -15,7 +15,7 @@ export async function GET(context: APIContext) {
       title: post.data.title,
       pubDate: post.data.publishDate,
       description: post.data.description,
-      link: `/blog/${post.id}/`
+      link: withBase(`/blog/${post.id}/`)
     }))
   });
 }

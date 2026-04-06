@@ -4,7 +4,7 @@ import NewsletterSignup from "../components/NewsletterSignup.astro";
 import PostList from "../components/PostList.astro";
 import Search from "../components/Search.astro";
 import { getPublishedPosts } from "../lib/posts";
-import { siteConfig } from "../lib/site";
+import { siteConfig, withBase } from "../lib/site";
 
 const posts = await getPublishedPosts();
 const websiteSchema = {
@@ -23,7 +23,7 @@ const websiteSchema = {
 <BaseLayout
   title={`${siteConfig.title} | Home`}
   description={siteConfig.description}
-  canonicalPath="/"
+  canonicalPath={withBase("/")}
 >
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />

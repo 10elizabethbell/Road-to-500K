@@ -19,3 +19,11 @@ export const siteConfig = {
   commentsBlurb:
     "Comments will appear here once the embedded discussion provider is configured."
 };
+
+export function withBase(path: string) {
+  const base = import.meta.env.BASE_URL || "/";
+  const normalizedBase = base.endsWith("/") ? base.slice(0, -1) : base;
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+
+  return normalizedBase ? `${normalizedBase}${normalizedPath}` : normalizedPath;
+}

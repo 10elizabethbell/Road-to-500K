@@ -1,4 +1,10 @@
-<section class="search-panel" aria-labelledby="search-heading">
+---
+import { withBase } from "../lib/site";
+
+const searchEndpoint = withBase("/api/search.json");
+---
+
+<section class="search-panel" aria-labelledby="search-heading" data-search-endpoint={searchEndpoint}>
   <div class="section-heading">
     <p class="section-kicker">Search</p>
     <h2 id="search-heading">Find a post by title or description.</h2>
@@ -24,9 +30,11 @@
     url: string;
   };
 
+  const panel = document.querySelector<HTMLElement>(".search-panel");
   const input = document.querySelector<HTMLInputElement>("#search-input");
   const results = document.querySelector<HTMLDivElement>("#search-results");
   const status = document.querySelector<HTMLParagraphElement>("#search-status");
+  const searchEndpoint = panel?.dataset.searchEndpoint;
 
   const renderResult = (post: SearchPost) => `
     <article class="search-result">
@@ -39,8 +47,8 @@
     </article>
   `;
 
-  if (input && results && status) {
-    fetch("/api/search.json")
+  if (input && results && status && searchEndpoint) {
+    fetch(searchEndpoint)
       .then((response) => response.json() as Promise<SearchPost[]>)
       .then((posts) => {
         const render = (query = "") => {

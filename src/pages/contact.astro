@@ -1,13 +1,13 @@
 ---
 import BaseLayout from "../components/BaseLayout.astro";
 import NewsletterSignup from "../components/NewsletterSignup.astro";
-import { siteConfig } from "../lib/site";
+import { siteConfig, withBase } from "../lib/site";
 ---
 
 <BaseLayout
   title={`Contact | ${siteConfig.title}`}
   description={siteConfig.contactBlurb}
-  canonicalPath="/contact/"
+  canonicalPath={withBase("/contact/")}
 >
   <div class="home-sections">
     <section class="page-panel">

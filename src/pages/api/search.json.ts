@@ -1,5 +1,6 @@
 import type { APIRoute } from "astro";
 import { getPublishedPosts, getReadingTime } from "../../lib/posts";
+import { withBase } from "../../lib/site";
 
 export const GET: APIRoute = async () => {
   const posts = await getPublishedPosts();
@@ -12,7 +13,7 @@ export const GET: APIRoute = async () => {
       year: "numeric"
     }),
     readingTime: getReadingTime(post.body),
-    url: `/blog/${post.id}/`
+    url: withBase(`/blog/${post.id}/`)
   }));
 
   return new Response(JSON.stringify(body), {

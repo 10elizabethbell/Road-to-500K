@@ -4,7 +4,7 @@ import BaseLayout from "../../components/BaseLayout.astro";
 import Comments from "../../components/Comments.astro";
 import NewsletterSignup from "../../components/NewsletterSignup.astro";
 import { getReadingTime, isPublished } from "../../lib/posts";
-import { siteConfig } from "../../lib/site";
+import { siteConfig, withBase } from "../../lib/site";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -31,14 +31,14 @@ const articleSchema = {
     "@type": "Person",
     name: siteConfig.author
   },
-  mainEntityOfPage: new URL(`/blog/${entry.id}/`, Astro.site).toString()
+  mainEntityOfPage: new URL(withBase(`/blog/${entry.id}/`), Astro.site).toString()
 };
 ---
 
 <BaseLayout
   title={`${entry.data.title} | ${siteConfig.title}`}
   description={entry.data.description}
-  canonicalPath={`/blog/${entry.id}/`}
+  canonicalPath={withBase(`/blog/${entry.id}/`)}
 >
   <Fragment slot="head">
     <meta property="og:type" content="article" />

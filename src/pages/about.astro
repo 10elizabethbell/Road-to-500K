@@ -1,12 +1,12 @@
 ---
 import BaseLayout from "../components/BaseLayout.astro";
-import { siteConfig } from "../lib/site";
+import { siteConfig, withBase } from "../lib/site";
 ---
 
 <BaseLayout
   title={`About | ${siteConfig.title}`}
   description={siteConfig.aboutIntro}
-  canonicalPath="/about/"
+  canonicalPath={withBase("/about/")}
 >
   <section class="page-panel">
     <div class="about-grid">
@@ -20,7 +20,7 @@ import { siteConfig } from "../lib/site";
           them down, staying accountable, and seeing what survives over time.
         </p>
       </div>
-      <img src="/personal-photo.png" alt="Portrait of Ellie Bell" />
+      <img src={withBase("/personal-photo.png")} alt="Portrait of Ellie Bell" />
     </div>
   </section>
 </BaseLayout>

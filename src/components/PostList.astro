@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { getReadingTime } from "../lib/posts";
+import { withBase } from "../lib/site";
 
 interface Props {
   posts: CollectionEntry<"blog">[];
@@ -17,7 +18,7 @@ const { posts } = Astro.props;
         <span>{getReadingTime(post.body)} min read</span>
       </p>
       <h2>
-        <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+        <a href={withBase(`/blog/${post.id}/`)}>{post.data.title}</a>
       </h2>
       <p>{post.data.description}</p>
     </article>
