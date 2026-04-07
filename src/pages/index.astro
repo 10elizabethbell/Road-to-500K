@@ -8,7 +8,6 @@ const posts = await getPublishedPosts();
 const featuredPosts = posts.filter((post) => post.data.featured);
 const recentPosts = posts.filter((post) => !post.data.featured);
 const progressRatio = Math.min(siteConfig.currentProgress / siteConfig.goalAmount, 1);
-const progressPercent = Math.round(progressRatio * 100);
 const currencyFormatter = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "USD",
@@ -48,16 +47,16 @@ const websiteSchema = {
         <p>{siteConfig.homeIntro}</p>
       </div>
       <aside class="progress-card" aria-label="Progress toward 500 thousand dollars">
-        <p class="progress-kicker">Current progress</p>
         <div class="progress-thermometer" aria-hidden="true">
           <span class="progress-cap">{currencyFormatter.format(siteConfig.goalAmount)}</span>
           <div class="progress-track">
-            <div class="progress-fill" style={`height: ${Math.max(progressRatio * 100, 3)}%;`}></div>
+            <div class="progress-fill" style={`height: ${progressRatio * 100}%;`}></div>
+            {progressRatio > 0 && (
+              <span class="progress-indicator" style={`bottom: calc(${progressRatio * 100}% - 4px);`}></span>
+            )}
           </div>
-          <span class="progress-bulb"></span>
+          <span class="progress-floor">{currencyFormatter.format(0)}</span>
         </div>
-        <p class="progress-amount">{currencyFormatter.format(siteConfig.currentProgress)}</p>
-        <p class="progress-note">{progressPercent}% of the way to the goal</p>
       </aside>
     </div>
   </section>
