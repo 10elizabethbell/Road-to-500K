@@ -11,13 +11,13 @@ export const siteConfig = {
   aboutBody:
     "This site is meant to stay simple, personal, and honest. By tracking every road I attempt to travel down, I hope to sketch out a map for others liek myself, and to meet fellow travelers along the way.",
   newsletterHeading: "Newsletter",
-  // newsletterBlurb:
-  //   "A quiet signup will live here once a provider is connected.",
+  newsletterBlurb:
+    "A quiet signup will live here once a provider is connected.",
   contactHeading: "Contact",
-  // contactBlurb:
-  //   "There is not a public inbox listed on the site yet.",
-  // commentsBlurb:
-  //   "Comments will appear here once the embedded discussion provider is configured."
+  contactBlurb:
+    "There is not a public inbox listed on the site yet.",
+  commentsBlurb:
+    "Comments will appear here once the embedded discussion provider is configured."
 };
 
 export function withBase(path: string) {

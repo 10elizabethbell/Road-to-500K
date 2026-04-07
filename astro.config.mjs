@@ -3,8 +3,8 @@ import sitemap from "@astrojs/sitemap";
 import remarkGfm from "remark-gfm";
 
 export default defineConfig({
-  site: "https://10elizabethbell.github.io",
-  base: "/Road-to-500K/",
+  site: "https://roadto500k.com",
+  base: "/",
   output: "static",
   integrations: [sitemap()],
   markdown: {
