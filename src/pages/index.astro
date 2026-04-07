@@ -2,11 +2,12 @@
 import BaseLayout from "../components/BaseLayout.astro";
 import NewsletterSignup from "../components/NewsletterSignup.astro";
 import PostList from "../components/PostList.astro";
-import Search from "../components/Search.astro";
 import { getPublishedPosts } from "../lib/posts";
 import { siteConfig, withBase } from "../lib/site";
 
 const posts = await getPublishedPosts();
+const featuredPosts = posts.filter((post) => post.data.featured);
+const recentPosts = posts.filter((post) => !post.data.featured);
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -40,27 +41,30 @@ const websiteSchema = {
         <h1>{siteConfig.homeTitle}</h1>
         <p>{siteConfig.homeIntro}</p>
       </div>
-      <aside class="hero-panel">
-        <p class="section-kicker">Right now</p>
-        <h2>Recent posts by date.</h2>
-        <p>
-          The homepage stays intentionally simple: one flowing list, quick scanning,
-          and room to add featured posts later without changing the writing workflow.
-        </p>
-      </aside>
     </div>
   </section>
 
   <div class="home-sections">
+    <section class="page-panel" aria-labelledby="featured-posts-heading">
+      <div class="section-heading">
+        <p class="section-kicker">Featured</p>
+        <h2 id="featured-posts-heading">Featured posts</h2>
+      </div>
+      {featuredPosts.length ? (
+        <PostList posts={featuredPosts} />
+      ) : (
+        <p class="subtle-note">Mark a post as featured to highlight it here.</p>
+      )}
+    </section>
+
     <section class="page-panel" aria-labelledby="recent-posts-heading">
       <div class="section-heading">
         <p class="section-kicker">Blog</p>
         <h2 id="recent-posts-heading">Recent posts</h2>
       </div>
-      <PostList posts={posts} />
+      <PostList posts={recentPosts} />
     </section>
 
-    <Search />
     <NewsletterSignup />
   </div>
 </BaseLayout>
