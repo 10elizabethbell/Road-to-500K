@@ -2,7 +2,6 @@
 import { getCollection, render } from "astro:content";
 import BaseLayout from "../../components/BaseLayout.astro";
 import Comments from "../../components/Comments.astro";
-import NewsletterSignup from "../../components/NewsletterSignup.astro";
 import { getReadingTime, isPublished } from "../../lib/posts";
 import { siteConfig, withBase } from "../../lib/site";
 
@@ -60,6 +59,5 @@ const articleSchema = {
 
   <div class="home-sections">
     <Comments />
-    <NewsletterSignup />
   </div>
 </BaseLayout>

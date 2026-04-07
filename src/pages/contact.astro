@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../components/BaseLayout.astro";
-import NewsletterSignup from "../components/NewsletterSignup.astro";
 import { siteConfig, withBase } from "../lib/site";
 ---
 
@@ -9,16 +8,13 @@ import { siteConfig, withBase } from "../lib/site";
   description={siteConfig.contactBlurb}
   canonicalPath={withBase("/contact/")}
 >
-  <div class="home-sections">
-    <section class="page-panel">
-      <p class="section-kicker">{siteConfig.contactHeading}</p>
-      <h1>Contact</h1>
-      <p>{siteConfig.contactBlurb}</p>
-      <p>
-        For now, this page exists so the site structure is in place without adding
-        noisy widgets or public links before they are actually needed.
-      </p>
-    </section>
-    <NewsletterSignup />
-  </div>
+  <section class="page-panel">
+    <p class="section-kicker">{siteConfig.contactHeading}</p>
+    <h1>Contact</h1>
+    <p>{siteConfig.contactBlurb}</p>
+    <p>
+      For now, this page exists so the site structure is in place without adding
+      noisy widgets or public links before they are actually needed.
+    </p>
+  </section>
 </BaseLayout>

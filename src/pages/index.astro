@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../components/BaseLayout.astro";
-import NewsletterSignup from "../components/NewsletterSignup.astro";
 import PostList from "../components/PostList.astro";
 import { getPublishedPosts } from "../lib/posts";
 import { siteConfig, withBase } from "../lib/site";
@@ -64,7 +63,5 @@ const websiteSchema = {
       </div>
       <PostList posts={recentPosts} />
     </section>
-
-    <NewsletterSignup />
   </div>
 </BaseLayout>

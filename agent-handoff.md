@@ -314,6 +314,7 @@ No manual root `index.html` copy was present when last checked.
 3. The contact page is intentionally minimal because no public contact endpoint/email was provided.
 
 4. The newsletter and comments are placeholder-ready but not configured with real providers yet.
+   Newsletter signup has now been removed from the live UI and should be treated as a future feature to re-enable later.
 
 5. Analytics was requested in principle, but no provider-specific configuration has been completed.
    There is a Plausible hook in the layout via `PUBLIC_PLAUSIBLE_DOMAIN`.
@@ -342,6 +343,8 @@ No manual root `index.html` copy was present when last checked.
 
 7. Review README deployment/setup instructions for accuracy after the move from project-path Pages deployment to custom domain root deployment.
 
+8. Reintroduce newsletter signup later when a provider is chosen and the UI should go live again.
+
 ## Quick Command Notes
 
 Because PowerShell script execution was restricted in this environment, the working commands used locally were:
@@ -353,4 +356,3 @@ npm.cmd run build
 ```
 
 `npm` alone may fail in PowerShell due to execution policy on `npm.ps1`.
-
