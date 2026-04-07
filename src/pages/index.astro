@@ -48,12 +48,20 @@ const websiteSchema = {
       </div>
       <aside class="progress-card" aria-label="Progress toward 500 thousand dollars">
         <div class="progress-thermometer" aria-hidden="true">
+          <span class="progress-label">Current progress</span>
           <span class="progress-cap">{currencyFormatter.format(siteConfig.goalAmount)}</span>
-          <div class="progress-track">
-            <div class="progress-fill" style={`height: ${progressRatio * 100}%;`}></div>
-            {progressRatio > 0 && (
-              <span class="progress-indicator" style={`bottom: calc(${progressRatio * 100}% - 4px);`}></span>
-            )}
+          <div class="progress-scale">
+            <div class="progress-markers">
+              <span class="progress-marker progress-marker-high">$400,000</span>
+              <span class="progress-marker progress-marker-mid">$250,000</span>
+              <span class="progress-marker progress-marker-low">$100,000</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" style={`height: ${progressRatio * 100}%;`}></div>
+              {progressRatio > 0 && (
+                <span class="progress-indicator" style={`bottom: calc(${progressRatio * 100}% - 4px);`}></span>
+              )}
+            </div>
           </div>
           <span class="progress-floor">{currencyFormatter.format(0)}</span>
         </div>

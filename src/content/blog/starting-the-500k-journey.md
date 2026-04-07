@@ -17,6 +17,8 @@ In Niccolò Machiavelli's The Prince, he mentions that a person must aim at grea
 
 You may be wondering what my secret is to reach $500,000 in 8 years! You and I both. My mindset right now is to work at it mercifully and something has to blossom, even if it’s just some great stories. “Great stories don’t pay the bills,” try telling that to J. K. Rowling.
 
+Progress tracker note: +$1,240 this week
+
 ## <span style="font-family:Arial;">My Strategy</span>
 
 I have been devoting the first 90 minutes of my day to this goal. That's a lie… I give 5 minutes to say good morning to my dog, and THEN I start my 90 minute timer. So far I have found 20 potential income stream methods. I am now in the process of finding surface level information on those tactics to succeed in those methods. This will help me narrow it down to one method that I want to focus on for a month. After that month, I will re-evaluate and either change my strategy, change methods, or stick to what I’m doing.
