@@ -1,4 +1,4 @@
-# Ellie's Notes
+# Road to 500K
 
 Personal Astro blog for Markdown-based writing, dark-mode-only presentation, one long homepage feed, and a simple single-author workflow.
 
@@ -107,6 +107,6 @@ The site is static-first, so S3 + CloudFront is the simplest AWS path.
 
 ## Notes
 
-- The current site name is `Ellie's Notes`. Change it in `src/lib/site.ts` if you want a different title.
+- The current site name is `Road to 500K`. Change it in `src/lib/site.ts` if you want a different title.
 - The contact page is intentionally minimal because no public contact address was provided yet.
 - The homepage is a single continuous list for now, but the content model already includes `featured` for later use.

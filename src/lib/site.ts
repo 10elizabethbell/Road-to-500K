@@ -1,5 +1,5 @@
 export const siteConfig = {
-  title: "Ellie's Notes",
+  title: "Road to 500K",
   description:
     "A personal blog by Ellie Bell about documenting ambitious goals, work, and what happens along the way.",
   author: "Ellie Bell",
