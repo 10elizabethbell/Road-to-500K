@@ -17,7 +17,7 @@ export const siteConfig = {
     "A quiet signup will live here once a provider is connected.",
   contactHeading: "Contact",
   contactBlurb:
-    "There is not a public inbox listed on the site yet.",
+    "Please reach me with any tips, stories, or questions. I would love to hear from you!",
   commentsBlurb:
     "Comments will appear here once the embedded discussion provider is configured."
 };

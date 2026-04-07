@@ -6,7 +6,7 @@ import { siteConfig, withBase } from "../lib/site";
 
 const posts = await getPublishedPosts();
 const featuredPosts = posts.filter((post) => post.data.featured);
-const recentPosts = posts.filter((post) => !post.data.featured);
+const recentPosts = posts;
 const progressRatio = Math.min(siteConfig.currentProgress / siteConfig.goalAmount, 1);
 const currencyFormatter = new Intl.NumberFormat("en-US", {
   style: "currency",

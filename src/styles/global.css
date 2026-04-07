@@ -138,7 +138,7 @@ img {
 .post-shell h1 {
   margin: 0;
   font-size: clamp(2.4rem, 4vw, 4.8rem);
-  line-height: 0.98;
+  line-height: 1.02;
   letter-spacing: -0.04em;
 }
 

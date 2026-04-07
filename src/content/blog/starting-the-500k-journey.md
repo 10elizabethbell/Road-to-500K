@@ -4,7 +4,7 @@ description: My first post on why this blog exists, what the goal is, and how th
 publishDate: 2026-04-06
 draft: false
 unlisted: false
-featured: false
+featured: true
 ---
 
 ## <span style="font-family:Arial;">Introduction</span>
@@ -18,6 +18,8 @@ In Niccolò Machiavelli's The Prince, he mentions that a person must aim at grea
 You may be wondering what my secret is to reach $500,000 in 8 years! You and I both. My mindset right now is to work at it mercifully and something has to blossom, even if it’s just some great stories. “Great stories don’t pay the bills,” try telling that to J. K. Rowling.
 
 Progress tracker note: +$1,240 this week
+
+RSS note: RSS lets people and apps subscribe to the blog so new posts are delivered automatically through a feed reader or other tool without checking the homepage manually.
 
 ## <span style="font-family:Arial;">My Strategy</span>
 
