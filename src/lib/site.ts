@@ -1,5 +1,7 @@
 export const siteConfig = {
   title: "Road to 500K",
+  goalAmount: 500000,
+  currentProgress: 0,
   description:
     "A personal blog by me, Ellie Bell, about my journey towards ambitious goals; my highs, my lows, and what I learn through the journey.",
   author: "Ellie Bell",

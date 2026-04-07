@@ -7,6 +7,13 @@ import { siteConfig, withBase } from "../lib/site";
 const posts = await getPublishedPosts();
 const featuredPosts = posts.filter((post) => post.data.featured);
 const recentPosts = posts.filter((post) => !post.data.featured);
+const progressRatio = Math.min(siteConfig.currentProgress / siteConfig.goalAmount, 1);
+const progressPercent = Math.round(progressRatio * 100);
+const currencyFormatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+  maximumFractionDigits: 0
+});
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -33,13 +40,25 @@ const websiteSchema = {
     <div class="hero-grid">
       <div class="hero-copy">
         <p class="hero-meta">
-          <span>Dark mode only</span>
-          <span>Markdown first</span>
-          <span>Simple by design</span>
+          <span>Transparency</span>
+          <span>Lessons Learned</span>
+          <span>Strategy</span>
         </p>
         <h1>{siteConfig.homeTitle}</h1>
         <p>{siteConfig.homeIntro}</p>
       </div>
+      <aside class="progress-card" aria-label="Progress toward 500 thousand dollars">
+        <p class="progress-kicker">Current progress</p>
+        <div class="progress-thermometer" aria-hidden="true">
+          <span class="progress-cap">{currencyFormatter.format(siteConfig.goalAmount)}</span>
+          <div class="progress-track">
+            <div class="progress-fill" style={`height: ${Math.max(progressRatio * 100, 3)}%;`}></div>
+          </div>
+          <span class="progress-bulb"></span>
+        </div>
+        <p class="progress-amount">{currencyFormatter.format(siteConfig.currentProgress)}</p>
+        <p class="progress-note">{progressPercent}% of the way to the goal</p>
+      </aside>
     </div>
   </section>
 
