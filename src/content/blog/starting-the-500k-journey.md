@@ -19,12 +19,12 @@ You may be wondering what my secret is to reach $500,000 in 8 years! You and I b
 
 ## <span style="font-family:Arial;">My Strategy</span>
 
-I have been devoting the first 90 minutes of my day to this goal. That's a lie… I give 5 minutes to say good morning to my dog, and THEN I start my 90 minute timer. So far I have found 20 potential income stream methods. I am now in the process of finding surface level information on those tactics to succeed in those methods. This will help me narrow it down to one method that I want to focus on for a month. After that month, I will re-evaluate and either change my strategy, change methods, or stick to what I’m doing.
+I have been devoting the first 90 minutes of my day to this goal. That's a lie… I give 5 minutes to say good morning to my dog, and THEN I start my 90 minute timer. So far I have found 20 potential income stream methods. I am now in the process of finding surface level information on those tactics to gage success rates. This will help me narrow it down to a few that I want to start focusing on.
 
 ## <span style="font-family:Arial;">My Reason</span>
 
 This process is so important to me because, in a way I have always struggled to explain, I cannot fathom the idea of being a prisoner to a 9-5 for the rest of my life. I hope that this journey will lead me to ways I can become financially free and be able to be a great, present mother to my future children. And, of course, be able to travel the world! 
 
-I decided to start this blog because I want it to hold me accountable in documenting this process. It will also be super cool (mostly cringe) to look back in a few years and see where I was today. So to my audience (my mom) I hope you will enjoy going through this journey with me for the next 8+ years.
+I decided to start this blog because I want it to hold me accountable in documenting this process. It will also be super cool (mostly cringe) to look back in a few years and see where I was today. So to my audience (my mom) I hope you will enjoy coming along with me on my road to 500K.
 
 Adios!
