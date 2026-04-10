@@ -1,6 +1,6 @@
 ---
 title: Starting the $500K Journey
-description:
+description: An introduction into my journey and how I got here.
 publishDate: 2026-04-06
 draft: false
 unlisted: false
