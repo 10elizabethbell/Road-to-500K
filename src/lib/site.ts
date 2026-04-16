@@ -11,7 +11,7 @@ export const siteConfig = {
   aboutIntro:
     "I am documenting my long-term goal: building $500,000 outside of a full-time job before turning 30.",
   aboutBody:
-    "This site is meant to stay simple, personal, and honest. By tracking every road I attempt to travel down, I hope to sketch out a map for others liek myself, and to meet fellow travelers along the way.",
+    "This site is meant to stay simple, personal, and honest. By tracking every road I attempt to travel down, I hope to sketch out a map for others like myself, and to meet fellow travelers along the way.",
   newsletterHeading: "Newsletter",
   newsletterBlurb:
     "A quiet signup will live here once a provider is connected.",
