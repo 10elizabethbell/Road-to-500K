@@ -1,0 +1,112 @@
+---
+import BaseLayout from "../components/BaseLayout.astro";
+import { siteConfig, withBase } from "../lib/site";
+---
+
+<BaseLayout
+  title={`Can You Spot the Phish? | ${siteConfig.title}`}
+  description="Analyze a fake phishing email and pick the warning signs before you click."
+  canonicalPath={withBase("/phishing.html")}
+>
+  <section class="page-panel tool-intro">
+    <p class="section-kicker">Interactive Training</p>
+    <h1>Can You Spot the Phish?</h1>
+    <p>
+      Review the email below and click the parts you think are suspicious. You are looking for
+      classic phishing signals like spoofed senders, pressure tactics, and deceptive links.
+    </p>
+  </section>
+
+  <section class="tool-grid" aria-label="Phishing email training tool">
+    <div class="email-workspace">
+      <div class="email-shell">
+        <div class="email-meta">
+          <div class="meta-row">
+            <span class="meta-label">From</span>
+            <button
+              id="sender-toggle"
+              class="email-part"
+              type="button"
+              data-indicator-id="sender"
+            ></button>
+          </div>
+
+          <div class="meta-row">
+            <span class="meta-label">Subject</span>
+            <button
+              id="subject-toggle"
+              class="email-part email-subject"
+              type="button"
+              data-indicator-id="subject"
+            ></button>
+          </div>
+        </div>
+
+        <article class="email-card" aria-labelledby="subject-toggle">
+          <div class="email-body">
+            <p class="email-label">Message</p>
+            <button
+              id="greeting-toggle"
+              class="email-part email-block"
+              type="button"
+              data-indicator-id="greeting"
+            ></button>
+            <button
+              id="body-toggle"
+              class="email-part email-block"
+              type="button"
+              data-indicator-id="body"
+            ></button>
+            <button
+              id="details-toggle"
+              class="email-part email-block"
+              type="button"
+              data-indicator-id="details"
+            ></button>
+            <button
+              id="link-toggle"
+              class="email-part email-link"
+              type="button"
+              data-indicator-id="link"
+            ></button>
+            <button
+              id="signoff-toggle"
+              class="email-part email-block"
+              type="button"
+              data-indicator-id="signoff"
+            ></button>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <aside class="tool-sidebar" aria-label="Instructions and actions">
+      <h2>How scoring works</h2>
+      <p>
+        There are four phishing indicators hidden in each email. Select the parts you think are
+        risky, then check your answer for a scored breakdown.
+      </p>
+      <ul class="helper-list">
+        <li>Click again to remove a selection.</li>
+        <li>Hover over each section to see what can be selected.</li>
+        <li>Use the second button to load another fake email.</li>
+      </ul>
+      <div class="tool-actions">
+        <button id="check-answer" class="button" type="button">Check My Answer</button>
+        <button id="next-email" class="button button-secondary" type="button">Try Another Email</button>
+      </div>
+      <p id="selection-status" class="status-note" aria-live="polite"></p>
+    </aside>
+  </section>
+
+  <section id="feedback-panel" class="feedback-panel" hidden aria-live="polite">
+    <span id="score-pill" class="score-pill"></span>
+    <div>
+      <h2>Feedback</h2>
+      <p id="feedback-summary" class="subtle-note"></p>
+    </div>
+    <ul id="feedback-results" class="results-list"></ul>
+  </section>
+
+  <script is:inline type="module" src={withBase("/scripts/phishing-detector.js")}></script>
+</BaseLayout>

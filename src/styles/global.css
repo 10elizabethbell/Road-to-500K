@@ -384,6 +384,263 @@ img {
   color: #172025;
   font-weight: 700;
   padding: 0 1.25rem;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 32px rgba(244, 162, 97, 0.22);
+  filter: saturate(1.05);
+}
+
+.button:focus-visible,
+.email-part:focus-visible {
+  outline: 2px solid var(--accent-soft);
+  outline-offset: 3px;
+}
+
+.inline-button {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.detector-button {
+  background: var(--accent);
+}
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(18rem, 0.95fr);
+  gap: 1.5rem;
+}
+
+.tool-intro {
+  margin-bottom: 1.5rem;
+}
+
+.tool-intro p:last-child {
+  margin-bottom: 0;
+}
+
+.email-workspace,
+.tool-sidebar,
+.feedback-panel,
+.results-list li {
+  background: var(--panel-strong);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+}
+
+.email-workspace,
+.tool-sidebar,
+.feedback-panel {
+  padding: 1.5rem;
+}
+
+.email-meta {
+  display: grid;
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.meta-row {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.meta-label,
+.email-label {
+  color: var(--muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.email-shell {
+  display: grid;
+  gap: 1rem;
+}
+
+.email-card {
+  padding: 1.5rem;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
+    rgba(14, 20, 22, 0.9);
+}
+
+.email-part {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.2rem 0.45rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.email-part:hover {
+  transform: translateY(-1px);
+  border-color: rgba(123, 215, 196, 0.3);
+  background: rgba(123, 215, 196, 0.08);
+}
+
+.email-part.selected {
+  border-color: rgba(244, 162, 97, 0.85);
+  background: rgba(244, 162, 97, 0.14);
+  box-shadow: 0 10px 24px rgba(244, 162, 97, 0.14);
+}
+
+.email-block {
+  display: block;
+  width: 100%;
+}
+
+.email-subject {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.email-body {
+  display: grid;
+  gap: 1rem;
+  color: var(--text);
+}
+
+.email-body p {
+  margin: 0;
+}
+
+.email-link {
+  color: var(--accent-soft);
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.16em;
+}
+
+.email-cta {
+  justify-self: start;
+  text-decoration: none;
+}
+
+.tool-sidebar {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.tool-sidebar h2,
+.feedback-panel h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  letter-spacing: -0.03em;
+}
+
+.tool-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.button.button-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+}
+
+.score-pill {
+  display: inline-flex;
+  width: fit-content;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(123, 215, 196, 0.12);
+  border: 1px solid rgba(123, 215, 196, 0.22);
+  color: var(--accent-soft);
+  font-weight: 700;
+}
+
+.feedback-panel {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.feedback-panel[hidden] {
+  display: none;
+}
+
+.results-list {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.results-list li {
+  padding: 1rem;
+}
+
+.results-list strong {
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.result-hit strong {
+  color: var(--accent-soft);
+}
+
+.result-miss strong {
+  color: var(--accent);
+}
+
+.helper-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+}
+
+.helper-list li + li {
+  margin-top: 0.5rem;
+}
+
+.status-note {
+  min-height: 1.5rem;
+  color: var(--muted);
+}
+
+@keyframes panel-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tool-grid > *,
+.feedback-panel {
+  animation: panel-rise 280ms ease;
 }
 
 .page-panel,
@@ -451,6 +708,10 @@ img {
   .page-panel,
   .post-shell {
     padding: 1.5rem;
+  }
+
+  .tool-grid {
+    grid-template-columns: 1fr;
   }
 
   .hero-grid,
