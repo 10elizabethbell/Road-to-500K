@@ -103,7 +103,7 @@ The site is static-first, so S3 + CloudFront is the simplest AWS path.
 - Site text and branding: `src/lib/site.ts`
 - Global design: `src/styles/global.css`
 - Post schema: `src/content.config.ts`
-- Existing post content: `src/content/blog/starting-the-500k-journey.md`
+- Existing post content: `src/content/blog/Post_1.md`
 
 ## Notes
 

@@ -57,7 +57,7 @@ The photo is copied into the site public assets as:
 
 The original post content was normalized into Astro content here:
 
-- [src/content/blog/starting-the-500k-journey.md](C:\Users\Ellie\blog\src\content\blog\starting-the-500k-journey.md)
+- [src/content/blog/Post_1.md](C:\Users\Ellie\blog\src\content\blog\Post_1.md)
 
 ## Current Stack
 

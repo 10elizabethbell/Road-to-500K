@@ -4,7 +4,7 @@ description: An introduction into my journey and how I got here.
 publishDate: 2026-04-06
 draft: false
 unlisted: false
-featured: true
+featured: false
 ---
 
 ## <span style="font-family:Arial;">Introduction</span>
